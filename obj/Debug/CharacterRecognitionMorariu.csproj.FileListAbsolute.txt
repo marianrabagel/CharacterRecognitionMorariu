@@ -18,3 +18,6 @@ c:\users\marian\documents\visual studio 2015\Projects\CharacterRecognitionMorari
 c:\users\marian\documents\visual studio 2015\Projects\CharacterRecognitionMorariu\CharacterRecognitionMorariu\bin\Debug\Accord.Statistics.xml
 c:\users\marian\documents\visual studio 2015\Projects\CharacterRecognitionMorariu\CharacterRecognitionMorariu\bin\Debug\Accord.Neuro.dll
 c:\users\marian\documents\visual studio 2015\Projects\CharacterRecognitionMorariu\CharacterRecognitionMorariu\bin\Debug\Accord.Neuro.xml
+E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\bin\Debug\CharacterRecognitionMorariu.exe.config
+E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.exe
+E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.pdb
