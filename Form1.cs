@@ -45,7 +45,28 @@ namespace CharacterRecognitionMorariu
 
         private void ApplyPcaButton_Click(object sender, EventArgs e)
         {
+            //invata
             inputChars.DoWork();
+        }
+
+        private void loadTestImage_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (Path.GetExtension(openFileDialog1.FileName).ToUpper() != ".BMP")
+                {
+                    MessageBox.Show("alegeti bmp");
+                    return;
+                }
+
+                double[] output = inputChars.Evaluate(openFileDialog1.FileName);
+                label1.Text = "";
+                foreach (double val in output)
+                {
+                    //max in loc de round
+                    label1.Text += Math.Round(val).ToString() + "";
+                }
+            }
         }
     }
 }
