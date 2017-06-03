@@ -27,9 +27,10 @@ namespace CharacterRecognitionMorariu
             Width = width;
             Height = height;
             bmpHeader = new byte[headerSize];
-            charPixelMatrix = new double[10][][];
+            int n = 30;
+            charPixelMatrix = new double[n][][];
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             { 
                 charPixelMatrix[i] = new double[Height][];
 
@@ -42,7 +43,7 @@ namespace CharacterRecognitionMorariu
 
         public void AddImage(string inputFileName)
         {
-            if (ct < 10)
+            if (ct < charPixelMatrix.Length)
             {
                 using (Bitmap bitmap = new Bitmap(inputFileName))
                 {
@@ -133,45 +134,40 @@ namespace CharacterRecognitionMorariu
 
         private void ApplyBackpropagation(double[][] inputGroup)
         {
-            int networkInputs = 10;
-             network = new ActivationNetwork(
-               new SigmoidFunction(2),
-               networkInputs,
-               4,
-               10
-               );
+            int networkInputs = inputGroup.Length;
+            network = new ActivationNetwork(
+                new SigmoidFunction(2),
+                networkInputs,
+                4,
+                10
+                );
 
             BackPropagationLearning teacher = new BackPropagationLearning(network);
             bool needToStop = false;
+            double[][] output = new double[inputGroup.Length][];
 
-            /*for (int index = 0; index < 10; index++)
-            {*/
-                double[][] output = new double[10][];
+            for (int i = 0; i < 30; i++)
+            {
+                output[i] = new double[10];
 
-                for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
                 {
-                    output[i] = new double[10];
-
-                    for (int j = 0; j < 10; j++)
-                    {
-                        output[i][j] = 0;
-                    }
-
-                    output[i][i] = 1;
+                    output[i][j] = 0;
                 }
-                int nrEpoci = 0;
 
-                while (!needToStop)
-                {
-                    nrEpoci++;
-                    double[][] input = inputGroup;
-                    double error = teacher.RunEpoch(input, output);
-                    if (error < 0.1 || nrEpoci == 10000)
-                        needToStop = true;
-                }
-                Console.WriteLine(nrEpoci);
-            //}
+                output[i][i/3] = 1;
+            }
+            int nrEpoci = 0;
 
+            while (!needToStop)
+            {
+                nrEpoci++;
+                double[][] input = inputGroup;
+                double error = teacher.RunEpoch(input, output);
+                if (error < 0.001 || nrEpoci == 10000)
+                    needToStop = true;
+            }
+            Console.WriteLine(nrEpoci);
         }
 
         public double[][] ApplyPca()//int index)
@@ -181,13 +177,13 @@ namespace CharacterRecognitionMorariu
                 Method = PrincipalComponentMethod.Center,
                 Whiten = true
             };
-            double[][] data = GetDataForPca(10);
+            double[][] data = GetDataForPca(30);
             MultivariateLinearRegression transform = pca.Learn(data);
             double[][] output = pca.Transform(data);
             return output;
         }
 
-        private double[][] GetDataForPcaIamgeOnColumn(int numberOfImages)
+        /*private double[][] GetDataForPcaIamgeOnColumn(int numberOfImages)
         {
             var size = Width * Height;
             double[][] data = new double[size][];
@@ -209,7 +205,7 @@ namespace CharacterRecognitionMorariu
             }
 
             return data;
-        }
+        }*/
 
         private double[][] GetDataForPca(int numberOfImages)
         {

@@ -13,31 +13,21 @@ namespace CharacterRecognitionMorariu
 
         InputChars inputChars = new InputChars(20, 32);
 
-        private void LoadFile_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                if (Path.GetExtension(openFileDialog1.FileName).ToUpper() != ".BMP")
-                {
-                    MessageBox.Show("introduceti un fisier bmp");
-                    return;
-                }
-
-                inputChars.AddImage(openFileDialog1.FileName);
-                var bitmap = inputChars.GetBitmap();
-                TestImagePanel.BackgroundImage = bitmap;
-            }
-        }
-
         private void LoadAllImagesButton_Click(object sender, EventArgs e)
         {
             /*sstring projectPath = @"C:\Users\Marian\Documents\Visual Studio 2015\Projects\CharacterRecognitionMorariu\CharacterRecognitionMorariu";
             string path = projectPath + @"\bin\Debug\Chars_20x32\0.bmp";*/
-            string[] files = new string[10];
+            int numberOfChars = 10;
+            int numberOfSamples = 3;
+            string[] files = new string[numberOfChars* numberOfSamples];
+            int ct = 0;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < numberOfChars; i++)
             {
-                files[i] = @"Chars_20x32\" + i + ".bmp";
+                for (int j = 0; j < numberOfSamples; j++)
+                {
+                    files[ct++] = @"Chars_20x32\" + i + "_" + j + ".bmp";
+                }
             }
 
             inputChars.AddImage(files);
@@ -45,7 +35,6 @@ namespace CharacterRecognitionMorariu
 
         private void ApplyPcaButton_Click(object sender, EventArgs e)
         {
-            //invata
             inputChars.DoWork();
         }
 
@@ -61,12 +50,25 @@ namespace CharacterRecognitionMorariu
 
                 double[] output = inputChars.Evaluate(openFileDialog1.FileName);
                 label1.Text = "";
-                foreach (double val in output)
+                double max = double.MinValue;
+                int indexOfmax = -1;
+
+                for (int i = 0; i < output.Length; i++)
                 {
                     //max in loc de round
-                    label1.Text += Math.Round(val).ToString() + "";
+                    if (output[i] > max)
+                    {
+                        max = output[i];
+                        indexOfmax = i;
+                    }
                 }
+
+                label1.Text = indexOfmax.ToString();
             }
         }
+
+        //mai multe exemple de 1, 2...
+        //3 pe fiecare character
+        //
     }
 }

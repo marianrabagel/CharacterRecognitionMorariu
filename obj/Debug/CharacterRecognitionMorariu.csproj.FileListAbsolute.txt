@@ -37,3 +37,4 @@ E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitio
 E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.csproj.GenerateResource.Cache
 E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.exe
 E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.pdb
+E:\Workspaces\Visual studio 2015\CharacterRecognitionMorariu\CharacterRecognitionMorariu\obj\Debug\CharacterRecognitionMorariu.csprojResolveAssemblyReference.cache
