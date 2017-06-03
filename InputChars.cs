@@ -124,10 +124,6 @@ namespace CharacterRecognitionMorariu
 
         public void DoWork()
         {
-            //double[][][] pcaOutput = new double[10][][];
-            
-            //for (int index = 0; index < 10; index++)
-                 //pcaOutput[index] = ApplyPca(index);
             double[][] pcaOutput = ApplyPca();
             ApplyBackpropagation(pcaOutput);
         }
@@ -170,7 +166,7 @@ namespace CharacterRecognitionMorariu
             Console.WriteLine(nrEpoci);
         }
 
-        public double[][] ApplyPca()//int index)
+        public double[][] ApplyPca()
         {
             pca = new PrincipalComponentAnalysis()
             {
@@ -182,30 +178,6 @@ namespace CharacterRecognitionMorariu
             double[][] output = pca.Transform(data);
             return output;
         }
-
-        /*private double[][] GetDataForPcaIamgeOnColumn(int numberOfImages)
-        {
-            var size = Width * Height;
-            double[][] data = new double[size][];
-
-            for (int i = 0; i < size; i++)
-                data[i] = new double[10];
-
-            for (int index = 0; index < 10; index++)
-            {
-               
-                double[] imageAsAnArray = GetImageAsAnArrayFromCharPixelMatrix(index);
-
-                for (int i = 0; i < size; i++)
-                {
-
-                    data[i][index] = imageAsAnArray[i];
-                }
-
-            }
-
-            return data;
-        }*/
 
         private double[][] GetDataForPca(int numberOfImages)
         {

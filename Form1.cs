@@ -15,8 +15,6 @@ namespace CharacterRecognitionMorariu
 
         private void LoadAllImagesButton_Click(object sender, EventArgs e)
         {
-            /*sstring projectPath = @"C:\Users\Marian\Documents\Visual Studio 2015\Projects\CharacterRecognitionMorariu\CharacterRecognitionMorariu";
-            string path = projectPath + @"\bin\Debug\Chars_20x32\0.bmp";*/
             int numberOfChars = 10;
             int numberOfSamples = 3;
             string[] files = new string[numberOfChars* numberOfSamples];
@@ -55,7 +53,6 @@ namespace CharacterRecognitionMorariu
 
                 for (int i = 0; i < output.Length; i++)
                 {
-                    //max in loc de round
                     if (output[i] > max)
                     {
                         max = output[i];
@@ -66,9 +63,5 @@ namespace CharacterRecognitionMorariu
                 label1.Text = indexOfmax.ToString();
             }
         }
-
-        //mai multe exemple de 1, 2...
-        //3 pe fiecare character
-        //
     }
 }
