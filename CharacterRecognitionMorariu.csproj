@@ -103,6 +103,48 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\0_0.bmp" />
+    <Content Include="images\0_1.bmp" />
+    <Content Include="images\0_2.bmp" />
+    <Content Include="images\1_0.bmp" />
+    <Content Include="images\1_1.bmp" />
+    <Content Include="images\1_2.bmp" />
+    <Content Include="images\2_0.bmp" />
+    <Content Include="images\2_1.bmp" />
+    <Content Include="images\2_2.bmp" />
+    <Content Include="images\3_0.bmp" />
+    <Content Include="images\3_1.bmp" />
+    <Content Include="images\3_2.bmp" />
+    <Content Include="images\4_0.bmp" />
+    <Content Include="images\4_1.bmp" />
+    <Content Include="images\4_2.bmp" />
+    <Content Include="images\5_0.bmp" />
+    <Content Include="images\5_1.bmp" />
+    <Content Include="images\5_2.bmp" />
+    <Content Include="images\6_0.bmp" />
+    <Content Include="images\6_1.bmp" />
+    <Content Include="images\6_2.bmp" />
+    <Content Include="images\7_0.bmp" />
+    <Content Include="images\7_1.bmp" />
+    <Content Include="images\7_2.bmp" />
+    <Content Include="images\8_0.bmp" />
+    <Content Include="images\8_1.bmp" />
+    <Content Include="images\8_2.bmp" />
+    <Content Include="images\9_0.bmp" />
+    <Content Include="images\9_1.bmp" />
+    <Content Include="images\9_2.bmp" />
+    <Content Include="images\Test\0.bmp" />
+    <Content Include="images\Test\1.bmp" />
+    <Content Include="images\Test\2.bmp" />
+    <Content Include="images\Test\3.bmp" />
+    <Content Include="images\Test\4.bmp" />
+    <Content Include="images\Test\5.bmp" />
+    <Content Include="images\Test\6.bmp" />
+    <Content Include="images\Test\7.bmp" />
+    <Content Include="images\Test\8.bmp" />
+    <Content Include="images\Test\9.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.5.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.5.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
